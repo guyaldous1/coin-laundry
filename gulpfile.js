@@ -47,4 +47,4 @@ gulp.task('watch', () => {
     });
 });
 
-gulp.task('default', gulp.series(['clean', 'index', 'styles', 'minifyjs']));
+gulp.task('default', gulp.series(['clean', 'index', 'styles', 'minifyjs', 'static']));
