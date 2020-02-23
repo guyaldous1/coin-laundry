@@ -1,0 +1,94 @@
+
+/*--------------------------------------------------------------
+# Mixins
+--------------------------------------------------------------*/
+@mixin transition($t){
+    -webkit-transition: all $t ease-in-out;
+    -moz-transition: all $t ease-in-out;
+    -ms-transition: all $t ease-in-out;
+    -o-transition: all $t ease-in-out;
+    transition: all $t ease-in-out;
+}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@mixin background-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+
+$colour-primary:#0e4c93;
+$colour-secondary:#01b3e4;
+$colour-tertiary:#4552a4;
+$dark-grey:#333333;
+$med-grey:#989898;
+$light-grey:#e9e9e9;
+$white: #fff;
+$black: #000;
+
+$primary-font: 'PT Sans', sans-serif;
+$secondary-font: 'PT Sans Narrow', sans-serif;
+
+
+/*--------------------------------------------------------------
+# Styles
+--------------------------------------------------------------*/
+
+html{
+  font-family: $primary-font;
+}
+h1, h2, h3, h4{
+  font-family: $secondary-font;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.full-height{
+  min-height: 100vh;
+  @media(max-width: 991px){
+    min-height: 50vh;
+  }
+}
+
+.almost-full-height{
+  min-height: 90vh;
+}
+img{
+  max-width: 100%;
+  height: 100vh !important;
+  object-fit: cover;
+  @media(max-width: 991px){
+    height: 50vh !important;
+  }
+}
+.slider{
+  width: 100%;
+}
+iframe{
+  width:100%;
+}
+.wrapper{
+  height:100vh;
+  overflow: hidden;
+  .text-wrapper{
+  overflow-x: scroll;
+  height: 100%
+  }
+  @media(max-width: 991px){
+    height:unset;
+    overflow: visible;
+    .text-wrapper{
+    overflow-x: visible;
+    height: 100%;
+    }
+  }
+}
